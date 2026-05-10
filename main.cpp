@@ -5,15 +5,6 @@
 #include "body.h"
 using namespace std;
 
-// in AU^3 / (sun mass * day^2)
-const double G = 0.0002959122082855911;
-
-// time step
-const double DT = 0.5;
-
-// scale for gui so we see actually the planets :)
-const double VISUAL_SCALE = 80.0; 
-
 // --------- OpenGL for rendering below
 void drawPlanet(const body& b) {
     glPushMatrix();
@@ -27,7 +18,9 @@ void display() {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glLoadIdentity();
 
-    gluLookAt(20.0, 30.0, 40.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0);
+    gluLookAt(camera_eye[0], camera_eye[1], camera_eye[2],
+              camera_center[0], camera_center[1], camera_center[2],
+              camera_up[0], camera_up[1], camera_up[2]);
 
     GLfloat light_pos[] = {0.0f, 10.0f, 20.0f, 1.0f};
     GLfloat white[] = {1.0f, 1.0f, 1.0f, 1.0f};
@@ -76,6 +69,8 @@ int main(int argc, char** argv) {
     glEnable(GL_DEPTH_TEST);
     glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
     glShadeModel(GL_SMOOTH);
+    glEnable(GL_COLOR_MATERIAL);
+    glColorMaterial(GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE);
 
     glutDisplayFunc(display);
     glutReshapeFunc(reshape);
