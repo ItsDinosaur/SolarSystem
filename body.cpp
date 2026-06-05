@@ -31,17 +31,18 @@ void setBodies(const vector<body>& source) {
     }
 }
 
-void loadDefaultBodies() {
+    void loadDefaultBodies() {
     vector<body> defaults;
     defaults.push_back({"Sun", 696340.0, 1.0, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}});
-    defaults.push_back({"Mercury", 2439.7, 1.659e-7, {0.38709927, 0, 0}, {0, 47.36, 0}, {0, 0, 0}});
-    defaults.push_back({"Venus", 6051.8, 2.447e-6, {0.72333566, 0, 0}, {0, 35.02, 0}, {0, 0, 0}});
-    defaults.push_back({"Earth", 6371.0, 3.003e-6, {1.0, 0, 0}, {0, 29.78, 0}, {0, 0, 0}});
-    defaults.push_back({"Mars", 3389.5, 3.213e-7, {1.52371034, 0, 0}, {0, 24.077, 0}, {0, 0, 0}});
-    defaults.push_back({"Jupiter", 69911.0, 9.545e-4, {5.20288700, 0, 0}, {0, 13.07, 0}, {0, 0, 0}});
-    defaults.push_back({"Saturn", 58232.0, 2.858e-4, {9.53667594, 0, 0}, {0, 9.69, 0}, {0, 0, 0}});
-    defaults.push_back({"Uranus", 25362.0, 4.366e-5, {-19.18916464, 0, 0}, {0, 6.81, 0}, {0, 0, 0}});
-    defaults.push_back({"Neptune", 24622.0, 5.151e-5, {30.06992276, 0, 0}, {0, 5.43, 0}, {0, 0, 0}});
+    // Prędkości przeniesione z osi Y do osi Z
+    defaults.push_back({"Mercury", 2439.7, 1.659e-7, {0.38709927, 0, 0}, {0, 0, 0.02735}, {0, 0, 0}});
+    defaults.push_back({"Venus", 6051.8, 2.447e-6, {0.72333566, 0, 0}, {0, 0, 0.02022}, {0, 0, 0}});
+    defaults.push_back({"Earth", 6371.0, 3.003e-6, {1.0, 0, 0}, {0, 0, 0.01720}, {0, 0, 0}});
+    defaults.push_back({"Mars", 3389.5, 3.213e-7, {1.52371034, 0, 0}, {0, 0, 0.01391}, {0, 0, 0}});
+    defaults.push_back({"Jupiter", 69911.0, 9.545e-4, {5.20288700, 0, 0}, {0, 0, 0.00755}, {0, 0, 0}});
+    defaults.push_back({"Saturn", 58232.0, 2.858e-4, {9.53667594, 0, 0}, {0, 0, 0.00559}, {0, 0, 0}});
+    defaults.push_back({"Uranus", 25362.0, 4.366e-5, {-19.18916464, 0, 0}, {0, 0, 0.00393}, {0, 0, 0}});
+    defaults.push_back({"Neptune", 24622.0, 5.151e-5, {30.06992276, 0, 0}, {0, 0, 0.00314}, {0, 0, 0}});
     setBodies(defaults);
 }
 
