@@ -21,6 +21,10 @@ void initCamera() {
     rel_eye[0] = 0.0; rel_eye[1] = 40.0; rel_eye[2] = 50.0;
 }
 
+int getTrackedBodyIndex() {
+    return trackedBodyIndex;
+}
+
 void updateCamera() {
     if (trackedBodyIndex >= 0 && trackedBodyIndex < NUM_BODIES) {
 

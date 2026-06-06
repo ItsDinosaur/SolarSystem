@@ -4,7 +4,7 @@ LDFLAGS =
 
 LDLIBS = -lGL -lGLU -lglut -lm
 
-SRCS = main.cpp body.cpp camera.cpp physics.cpp
+SRCS = main.cpp body.cpp body_ui.cpp camera.cpp physics.cpp
 OBJS = $(SRCS:.cpp=.o)
 TARGET = solar_system
 
@@ -13,7 +13,7 @@ all: $(TARGET)
 $(TARGET): $(OBJS)
 	$(CXX) $(LDFLAGS) -o $@ $^ $(LDLIBS)
 
-%.o: %.cpp body.h camera.h physics.h
+%.o: %.cpp body.h body_ui.h camera.h physics.h
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
