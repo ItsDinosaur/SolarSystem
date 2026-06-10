@@ -10,19 +10,31 @@ Aplikacja symuluje ruch planet Układu Słonecznego korzystając z numerycznego 
 * **Interaktywny HUD:** Pływające okienko wyświetlające na żywo statystyki (nazwa, masa, parametry orbitalne) wybranego ciała.
 * **Sterowanie czasem:** Interaktywny suwak pozwala na płynną zmianę kroku czasowego (odtwarzanie przyspieszone lub zwolnione) za pomocą kursora myszy.
 * **Wizualizacja orbit:** Generowanie i rysowanie krzywych orbitalnych poszczególnych planet dla lepszej czytelności trajektorii.
-* **Podąrzania za planetami** Możliwość podąrzania za planetami po kliknięciu przycisków {1,2...8}. Klawisz '0' skupia kamęrę ponowinie na Słońcu.
+* **Podążania za planetami** Możliwość podążania za planetami po kliknięciu przycisków {1,2...8}. Klawisz '0' skupia kamerę ponownie na Słońcu.
 
 ## 🎮 Sterowanie
 * **Kamera:** Możliwość obracania i przybliżania (implementowane poprzez zdarzenia myszy/klawiatury).
-* **Interfejs (HUD):** Użyj lewego przycisku myszy na suwaku w lewym dolnym rogu (Time step), aby dynamicznie zmienić prędkość upływu czasu w symulacji (DT).
+* **Interfejs (HUD):** Możliwość użycia suwaku w lewym dolnym rogu (Time step), aby dynamicznie zmienić prędkość upływu czasu w symulacji (DT).
 
 ## 🛠️ Technologie i Zależności
 * **Język:** C++
-* **Grafika:** OpenGL / GLUT
+* **Grafika:** OpenGL / freeGLUT
 
 ## ⚙️ Kompilacja
-Aby uruchomić projekt, upewnij się, że posiadasz zainstalowane biblioteki OpenGL i GLUT. Przykładowa kompilacja (g++):
+Aby uruchomić projekt, upewnij się, że posiadasz zainstalowane biblioteki OpenGL i freeGLUT. Przykładowa kompilacja (g++):
 
 ```bash
 g++ main.cpp body.cpp physics.cpp -o SolarSystem -lGL -lGLU -lglut
 ./SolarSystem
+```
+### Linux
+##### 0. NixOS
+Zerowy krok tylko dla użytkowników NixOS. Istnieje zdefiniowany nix-shell zawierający wszystkie potrzebne biblioteki i zależności.
+```bash
+nix-shell .
+```
+##### 1. Użycie Makefile
+```bash
+make            # kompilacja
+./solar_system  # uruchomienie
+```
